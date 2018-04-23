@@ -2,6 +2,7 @@ dependencies:
   express: 4.16.3
   mongodb: 3.0.7
   short-unique-id: 1.1.1
+  valid-url: 1.0.9
 packages:
   /accepts/1.3.5:
     dependencies:
@@ -416,6 +417,10 @@ packages:
       node: '>= 0.4.0'
     resolution:
       integrity: sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
+  /valid-url/1.0.9:
+    dev: false
+    resolution:
+      integrity: sha1-HBRHm0DxOXp1eC8RXkCGRHQzogA=
   /vary/1.1.2:
     dev: false
     engines:
@@ -429,3 +434,4 @@ specifiers:
   express: ^4.14.0
   mongodb: ^3.0.7
   short-unique-id: ^1.1.1
+  valid-url: ^1.0.9

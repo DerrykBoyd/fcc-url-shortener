@@ -8,22 +8,28 @@ var MongoClient = require("mongodb").MongoClient
 var url = 'mongodb://'+ process.env.USER + ':' + process.env.PASS + '@ds235768.mlab.com:35768/dboydgit-fcc';
 var db;
 var collection;
+var validUrl = require('valid-url');
 
 exports.shorten = function(req, res) {
   var url = req.params[0];
-  var sid = uid.randomUUID(4);
-  collection.insertOne({
-    url: url,
-    uid: sid
-  });
-  
-  var response = {
-    original_url: url,
-    short_url: 'https://dbsurl.glitch.me/' + sid
+  // if not valid url return error
+  if (!validUrl.isWebUri(url)) {
+    var response = {
+      error: 'Please provide a valid http:// or https:// url'
+    }
+    res.end(JSON.stringify(response));
+  } else {
+    var sid = uid.randomUUID(4);
+    collection.insertOne({
+      url: url,
+      uid: sid
+    });
+    var response = {
+      original_url: url,
+      short_url: 'https://dbsurl.glitch.me/' + sid
+    }
+    res.end(JSON.stringify(response));
   }
-  
-  res.end(JSON.stringify(response));
-  
 }
 
 exports.redirect = function(req, res) {

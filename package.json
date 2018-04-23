@@ -3,7 +3,8 @@
   "dependencies": {
     "express": "^4.14.0",
     "mongodb": "^3.0.7",
-    "short-unique-id": "^1.1.1"
+    "short-unique-id": "^1.1.1",
+    "valid-url": "^1.0.9"
   },
   "main": "server.js",
   "scripts": {
